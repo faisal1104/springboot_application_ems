@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+
+
+</head>
+
+<body>
+<br>
+
+
+</div>
+<br><br>
+<div class="container">
+    <div class="d-flex flex-row">
+        <div class="p-2">
+            <a th:href="@{/designation/}">View All Designation</a>
+        </div>
+        <div class="p-2">
+            <a th:href="@{/designation/add}">|| &nbsp; &nbsp; Add Designation</a>
+        </div><br>
+    </div>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-xs-12 center-block text-center">
+                <h3> Employee Details</h3>
+
+
+                      <table th:class="table">
+
+                          <thead>
+                          <tr bgcolor="aqua">
+
+
+                                 <td>Id </td>
+                                 <td>Name</td>
+                                 <td>Gender</td>
+                                 <td>Designation</td>
+                                 <td>Salary</td>
+                                <td th:marginwidth="5">&emsp;&emsp;&emsp; Action</td>
+
+
+                          </tr>
+                          </thead>
+
+                          <tbody>
+
+                          <th:block th:each="u : ${allUser}">
+                              <tr>
+                                  <td th:text="${u.id}"></td>
+                                  <td th:text="${u.name}"></td>
+                                              <th:block th:switch="${u.gender}">
+                                                  <span th:case="Male">
+                                                      <td th:text="${u.gender}" bgcolor="#add8e6"></td>
+                                                  </span>
+
+                                                  <span th:case="Female">
+                                                      <td th:text="${u.gender}" bgcolor="#8fbc8f"></td>
+                                                  </span>
+                                              </th:block>
+                                  <td th:text="${u.designationName}">...</td>
+                                  <td th:text="${u.salary}"></td>
+                                  <td> <a class="btn btn-primary" th:href="@{'/user/update/'+${u.id}}"> Update  </a>
+                                   <a class="btn btn-primary" th:href="@{'/user/delete/'+${u.id}}"> Delete  </a></td>
+                              </tr>
+                          </th:block>
+                          </tbody>
+
+
+
+                      </table>
+            </div>
+            <br>
+            <br>
+            <a th:href="@{/user/add}">Add a Employees</a>
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

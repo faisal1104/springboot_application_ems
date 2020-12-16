@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+</head>
+<body>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+
+            <form action="#" th:action="@{/user/save}" th:object="${em}" method="POST" >
+                <input type="hidden" class="form-control" th:field="*{id}"/>
+                <br><br>
+                <i class="tm-block-title mb-4">Name:</i><br>
+                <input type="text" th:field="*{name}"
+                       class="form-control mb-4 col-4" placeholder="Name">
+                <br>
+                <i class="tm-block-title mb-4">Gender:</i><br>
+                <th:block th:each="gender:${genders}" class="mb-5">
+                    <input type="radio"  th:field="*{gender}" th:value="${gender}">
+                    <label th:text="${gender}"></label><br>
+                </th:block>
+                <br>
+<!--                                  Select demo for loading from a Object list-->
+                <i class="tm-block-title mb-4">Designation:</i><br>
+                <select name="designation" th:field="*{designationId}">
+                    <option th:each="designation : ${designationDtolist}"
+                            th:value="${designation.designationId}" th:text="${designation.designationName}"></option>
+                </select>
+
+<!--                <select name="designation" th:field="*{designationId}">-->
+<!--                    <option th:each="designation : ${designationList}"-->
+<!--                            th:value="${designation.designationId}" th:text="${designation.designationName}"></option>-->
+<!--                </select>-->
+
+                <!--    th:name="${gender}"  th:name="salary"-->
+                <br><br><i class="tm-block-title">Salary:</i>
+                <input type="text" class="form-control mb-4 col-4" th:field="*{salary}">
+                <br>
+
+                <button type="submit" class="btn btn-info col-2">Save</button>
+
+            </form>
+
+            <hr>
+            <a th:href="@{/user/}">Back to Employees List</a>
+
+
+
+
+
+        </div>
+    </div>
+</div>
+<!--/*@thymesVar id="employee" type=""*/-->
+
+</body>
+</html>
