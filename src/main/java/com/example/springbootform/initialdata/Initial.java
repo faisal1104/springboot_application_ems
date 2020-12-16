@@ -16,6 +16,7 @@ public class Initial implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         userRepository.deleteAll();
+        designationRepository.deleteAll();
 
         User user1 = new User("Faisal", "Male", 100000);
         User user2 = new User("Fahim", "Male", 200000);
