@@ -1,6 +1,7 @@
 package com.example.springbootform.service;
 
 import com.example.springbootform.dto.UserDto;
+import com.example.springbootform.exception.ResourceNotFoundException;
 import com.example.springbootform.model.User;
 import com.example.springbootform.repository.DesignationRepository;
 import com.example.springbootform.repository.UserRepository;
@@ -55,9 +56,10 @@ public class UserService {
     }
 
     public UserDto getById(Long id) {
-        Optional<User> userOpt= Optional.ofNullable(userRepository.getOne(id));
+       // Optional<User> userOpt= Optional.ofNullable(userRepository.getOne(id));
+        Optional<User> userOpt= userRepository.findById(id);
         if (userOpt.isEmpty()){
-            throw new RuntimeException("User not found with this id");
+            throw new ResourceNotFoundException(" User not found with thes id :"+id+" to update");
         }
         User user=userOpt.get();
         UserDto userDto = new UserDto();
@@ -68,9 +70,11 @@ public class UserService {
     public void delete(Long id1) {
         Optional<User> userOpt=  userRepository.findById(id1);
         if (userOpt.isEmpty()){
-            throw new RuntimeException("User not found with this id");
+            throw new ResourceNotFoundException("  User not found with the id :"+id1+" to delete");
         }
         User user=userOpt.get();
         user.setEnabled(false);
+        userRepository.save(user);
+        System.out.println(user);
     }
 }

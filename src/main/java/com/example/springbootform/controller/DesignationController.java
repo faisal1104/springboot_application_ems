@@ -43,7 +43,7 @@ public class DesignationController {
 
     @GetMapping("/delete/{id}")
     String deleteDesignation(@PathVariable("id") Long id) {
-        designationService.delette(id);
+        designationService.delete(id);
         return "redirect:/designation/";
     }
 

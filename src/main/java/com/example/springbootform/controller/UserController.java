@@ -56,6 +56,10 @@ public class UserController {
     @GetMapping("/update/{id}")
     public String updateEmployee(@PathVariable("id") Long id, Model model){
 
+//        if(userService.getById(id) == null){
+//            model.addAttribute("errorMsg", "ID not Found");
+//            return "errors/error404";
+//        }
         model.addAttribute("user",userService.getById(id));
         model.addAttribute("designationDtolist",designationService.getAll());
         model.addAttribute("genders",this.getGenderList());
@@ -65,7 +69,6 @@ public class UserController {
 
     @GetMapping("/delete/{id}")
     public RedirectView delete(@PathVariable("id") Long id1){
-
         userService.delete(id1);
         return new RedirectView("/user/");
     }

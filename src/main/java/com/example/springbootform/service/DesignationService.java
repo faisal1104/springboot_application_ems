@@ -1,9 +1,12 @@
 package com.example.springbootform.service;
 
 import com.example.springbootform.dto.DesignationDto;
+import com.example.springbootform.exception.ResourceNotFoundException;
 import com.example.springbootform.model.Designation;
+import com.example.springbootform.model.User;
 import com.example.springbootform.repository.DesignationRepository;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,7 +16,6 @@ import java.util.Optional;
 @Service
 public class DesignationService {
     private final DesignationRepository designationRepository;
-
     public DesignationService(DesignationRepository designationRepository) {
         this.designationRepository = designationRepository;
     }
@@ -45,7 +47,7 @@ public class DesignationService {
     public DesignationDto getOne(Long id1) {
         Optional<Designation> optionalDesignation = designationRepository.findById(id1);
         if (optionalDesignation.isEmpty()) {
-            throw new RuntimeException("Designation not Found By this id");
+            throw new ResourceNotFoundException(" Designatioin not found with the id :"+id1+" to update");
         }
         Designation designation = optionalDesignation.get();
         DesignationDto designationDto = new DesignationDto();
@@ -53,7 +55,11 @@ public class DesignationService {
         return designationDto;
     }
 
-    public void delette(Long id) {
+    public void delete(Long id) {
+        Optional<Designation> designationOptional=  designationRepository.findById(id);
+        if (designationOptional.isEmpty()){
+            throw new ResourceNotFoundException(" Designatioin not found with the id :"+id+" to delete");
+        }
         designationRepository.deleteById(id);
     }
 }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+</head>
+<body>
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <br>
+            <br>
+            <br>
+            <h1> Warning...!!</h1>
+            <h2>Error 404</h2><br>
+            <table>
+                <td bgcolor="#00ced1">
+                    <h5 th:text="${errorMsg}"> </h5>
+                </td>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
