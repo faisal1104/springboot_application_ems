@@ -28,17 +28,11 @@
                 <br>
 <!--                                  Select demo for loading from a Object list-->
                 <i class="tm-block-title mb-4">Designation:</i><br>
-                <select name="designation" th:field="*{designationId}">
+                <select name="designation" th:field="*{designationDto.designationId}">
                     <option th:each="designation : ${designationDtolist}"
                             th:value="${designation.designationId}" th:text="${designation.designationName}"></option>
                 </select>
-
-<!--                <select name="designation" th:field="*{designationId}">-->
-<!--                    <option th:each="designation : ${designationList}"-->
-<!--                            th:value="${designation.designationId}" th:text="${designation.designationName}"></option>-->
-<!--                </select>-->
-
-                <!--    th:name="${gender}"  th:name="salary"-->
+                <br>
                 <br><br><i class="tm-block-title">Salary:</i>
                 <input type="text" class="form-control mb-4 col-4" th:field="*{salary}">
                 <br>

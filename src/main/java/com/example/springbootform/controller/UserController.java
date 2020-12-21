@@ -20,7 +20,6 @@ import java.util.Optional;
 @RequestMapping("/user")
 public class UserController {
 
-
     private final UserService userService;
     private final DesignationService designationService;
 
@@ -46,7 +45,6 @@ public class UserController {
         return "user/add";
         }
 
-
     @PostMapping("/save")
       public RedirectView add(@ModelAttribute("user") UserDto userDto){
              userService.saveUser(userDto);
@@ -55,11 +53,6 @@ public class UserController {
 
     @GetMapping("/update/{id}")
     public String updateEmployee(@PathVariable("id") Long id, Model model){
-
-//        if(userService.getById(id) == null){
-//            model.addAttribute("errorMsg", "ID not Found");
-//            return "errors/error404";
-//        }
         model.addAttribute("user",userService.getById(id));
         model.addAttribute("designationDtolist",designationService.getAll());
         model.addAttribute("genders",this.getGenderList());

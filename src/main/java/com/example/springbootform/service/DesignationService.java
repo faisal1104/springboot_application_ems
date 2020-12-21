@@ -34,12 +34,7 @@ public class DesignationService {
 
     public void save(DesignationDto designationDto) {
         Optional<Designation> designationOptional = designationRepository.findById(designationDto.getDesignationId());
-        Designation designation = null;
-        if(designationOptional.isPresent()){
-            designation =designationOptional.get();
-        } else{
-            designation = new Designation();
-        }
+        Designation designation = designationOptional.orElseGet(Designation::new);
         BeanUtils.copyProperties(designationDto, designation);
         designationRepository.save(designation);
     }

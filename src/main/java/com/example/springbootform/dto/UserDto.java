@@ -9,7 +9,6 @@ public class UserDto implements Serializable {
     private long id;
     private String name;
     private String gender;
-    private long designationId;
-    private String designationName;
+    private DesignationDto designationDto;
     private int salary;
 }

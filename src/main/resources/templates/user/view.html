@@ -63,7 +63,7 @@
                                                       <td th:text="${u.gender}" bgcolor="#8fbc8f"></td>
                                                   </span>
                                               </th:block>
-                                  <td th:text="${u.designationName}">...</td>
+                                  <td th:text="${u.designationDto.designationName}">...</td>
                                   <td th:text="${u.salary}"></td>
                                   <td> <a class="btn btn-primary" th:href="@{'/user/update/'+${u.id}}"> Update  </a>
                                    <a class="btn btn-primary" th:href="@{'/user/delete/'+${u.id}}"> Delete  </a></td>
