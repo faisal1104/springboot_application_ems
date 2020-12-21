@@ -1,5 +1,6 @@
 package com.example.springbootform.service;
 
+import com.example.springbootform.dto.DesignationDto;
 import com.example.springbootform.dto.UserDto;
 import com.example.springbootform.exception.ResourceNotFoundException;
 import com.example.springbootform.model.User;
@@ -64,8 +65,16 @@ public class UserService {
         User user=userOpt.get();
         UserDto userDto = new UserDto();
         BeanUtils.copyProperties(user,userDto);
+        DesignationDto designationDto = new DesignationDto();
+        BeanUtils.copyProperties(user.getDesignation(), designationDto);
+        userDto.setDesignationId(designationDto.getDesignationId());
+        userDto.setDesignationName(designationDto.getDesignationName());
         return userDto;
     }
+//    DesignationDto designationDto = new DesignationDto();
+//        BeanUtils.copyProperties(employee.getDesignation(), designationDto);
+//        employeeDto.setDesignationDto(designationDto);
+//        model.addAttribute("employeeDto", employeeDto);
 
     public void delete(Long id1) {
         Optional<User> userOpt=  userRepository.findById(id1);
