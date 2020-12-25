@@ -32,6 +32,13 @@
                     <option th:each="designation : ${designationDtolist}"
                             th:value="${designation.designationId}" th:text="${designation.designationName}"></option>
                 </select>
+
+                <i class="tm-block-title mb-4">Visited City:</i><br>
+<!--                <select name="designation" th:field="*{visitedCityDtoList.add()}">-->
+<!--                    <option th:each="designation : ${designationDtolist}"-->
+<!--                            th:value="${designation.designationId}" th:text="${designation.designationName}"></option>-->
+<!--                </select>-->
+
                 <br>
                 <br><br><i class="tm-block-title">Salary:</i>
                 <input type="text" class="form-control mb-4 col-4" th:field="*{salary}">

@@ -2,9 +2,11 @@ package com.example.springbootform.service;
 
 import com.example.springbootform.dto.DesignationDto;
 import com.example.springbootform.dto.UserDto;
+import com.example.springbootform.dto.VisitedCityDto;
 import com.example.springbootform.exception.ResourceNotFoundException;
 import com.example.springbootform.model.Designation;
 import com.example.springbootform.model.User;
+import com.example.springbootform.model.VisitedCity;
 import com.example.springbootform.repository.DesignationRepository;
 import com.example.springbootform.repository.UserRepository;
 import org.springframework.beans.BeanUtils;
@@ -28,15 +30,25 @@ public class UserService {
 
     public List<UserDto> getAllEnabled() {
         List<User> userList = userRepository.findByEnabled();
-
         List<UserDto> userDtoList = new ArrayList<>();
+
         for (User u: userList) {
             UserDto userDto = new UserDto();
             BeanUtils.copyProperties(u,userDto);
+
             Designation d = u.getDesignation();
             DesignationDto designationDto = new DesignationDto();
             BeanUtils.copyProperties(d,designationDto);
             userDto.setDesignationDto(designationDto);
+
+            List<VisitedCity> visitedCityList = u.getVisitedCityList();
+            List<VisitedCityDto> visitedCityDtos = new ArrayList<>();
+            for (VisitedCity v: visitedCityList) {
+                VisitedCityDto phoneNumberDtoTemp = new VisitedCityDto();
+                BeanUtils.copyProperties(v, phoneNumberDtoTemp);
+                visitedCityDtos.add(phoneNumberDtoTemp);
+            }
+            userDto.setVisitedCityDtoList(visitedCityDtos);
             userDtoList.add(userDto);
           }
         return userDtoList;

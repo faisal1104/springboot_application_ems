@@ -41,6 +41,7 @@
                                  <td>Name</td>
                                  <td>Gender</td>
                                  <td>Designation</td>
+                              <td> Visited City</td>
                                  <td>Salary</td>
                                 <td th:marginwidth="5">&emsp;&emsp;&emsp; Action</td>
 
@@ -64,6 +65,11 @@
                                                   </span>
                                               </th:block>
                                   <td th:text="${u.designationDto.designationName}">...</td>
+                                  <td>  <th:block th:each="city : ${u.visitedCityDtoList}">
+                                      <p th:text="${city.cityName}"></p>
+                                  </th:block>
+                                  </td>
+
                                   <td th:text="${u.salary}"></td>
                                   <td> <a class="btn btn-primary" th:href="@{'/user/update/'+${u.id}}"> Update  </a>
                                    <a class="btn btn-primary" th:href="@{'/user/delete/'+${u.id}}"> Delete  </a></td>

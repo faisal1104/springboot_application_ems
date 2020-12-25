@@ -8,6 +8,7 @@ import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity(name ="user_table")
 @Data @NoArgsConstructor
@@ -29,6 +30,13 @@ public class User implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="designation_id")
     private Designation designation;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "user_city",
+            joinColumns = @JoinColumn(name = "city_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private List<VisitedCity> visitedCityList;
 
     @Column
     private Boolean enabled=true;

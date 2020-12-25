@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Employee</title>
+
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+
+
+</head>
+
+<body>
+<br>
+
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex flex-row">
+                <div class="p-2">
+                    <a th:href="@{/user/}">View All Employee</a>
+                </div>
+
+
+            </div>
+
+            <div class="col-xs-4 center-block text-center">
+
+                    <h3> City List</h3>
+
+
+                      <table th:class="table">
+
+                          <thead>
+                          <tr bgcolor="aqua">
+
+
+                                 <td>Id </td>
+                                 <td>City Name</td>
+                                 <td>&emsp;&emsp;&emsp;Action</td>
+
+
+
+                          </tr>
+                          </thead>
+
+                          <tbody>
+
+                          <th:block th:each="u : ${allCity}">
+                              <tr>
+                                  <td th:text="${u.cityId}"></td>
+                                  <td th:text="${u.cityName}"></td>
+                                  <td> <a class="btn btn-primary"  th:href="@{'/city/update/'+${u.cityId}}"> Update  </a>
+                                      <a class="btn btn-primary"  th:href="@{'/city/delete/'+${u.cityId}}"> Delete  </a>
+                                  </td>
+
+                              </tr>
+                          </th:block>
+                          </tbody>
+                      </table>
+
+            <br>
+            <a th:href="@{/city/add}">Add City</a>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Des</title>
+
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+</head>
+<body>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+
+
+            <form action="#" th:action="@{/city/save}"th:object="${city}" method="POST">
+
+                <input type="hidden" class="form-control" th:field="*{cityId}"/>
+                <br><br>
+                <input type="text" th:field="*{cityName}"
+                       class="form-control mb-4 col-4" placeholder="Name">
+
+                <button type="submit" class="btn btn-info col-2">Save</button>
+
+            </form>
+
+            <hr>
+            <a th:href="@{/designation/}">Back to Designation List</a>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

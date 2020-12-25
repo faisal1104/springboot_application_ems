@@ -1,12 +1,9 @@
 package com.example.springbootform.controller;
 
-import com.example.springbootform.dto.DesignationDto;
+
 import com.example.springbootform.dto.UserDto;
-import com.example.springbootform.model.Designation;
-import com.example.springbootform.model.User;
 import com.example.springbootform.service.DesignationService;
 import com.example.springbootform.service.UserService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
