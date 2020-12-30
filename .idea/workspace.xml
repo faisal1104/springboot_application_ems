@@ -4,15 +4,9 @@
     <list default="true" id="50d31418-a64b-436e-b0a6-f8892fe4954f" name="Default Changelist" comment="Add Service Layer.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/springbootform/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/springbootform/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/springbootform/initialdata/Initial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/springbootform/initialdata/Initial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/springbootform/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/springbootform/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/view.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/springbootform/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/springbootform/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/springbootform/initialdata/Initial.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/springbootform/initialdata/Initial.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/springbootform/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/springbootform/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/user/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/user/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/user/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/user/view.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,6 +93,7 @@
       <workItem from="1608899817470" duration="6864000" />
       <workItem from="1609313572493" duration="7048000" />
       <workItem from="1609337772448" duration="873000" />
+      <workItem from="1609339432194" duration="2263000" />
     </task>
     <servers />
   </component>

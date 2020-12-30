@@ -37,7 +37,9 @@
                 <i class="tm-block-title mb-4">Visited City:</i><br>
                 <select multiple th:field="*{visitedCityDtoList}">
                     <option th:each="city : ${cityList}"
-                            th:value="${city.cityId}" th:text="${city.cityName}"></option>
+                            th:value="${city.cityId}" th:text="${city.cityName}"
+                            th:selected="${city}" >
+                    </option>
                 </select>
 
                 <br>

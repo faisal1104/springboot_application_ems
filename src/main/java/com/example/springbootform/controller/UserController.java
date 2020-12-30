@@ -56,7 +56,7 @@ public class UserController {
         model.addAttribute("user",userService.getById(id));
         model.addAttribute("designationDtolist",designationService.getAll());
         model.addAttribute("genders",this.getGenderList());
-
+        model.addAttribute("cityList", visitedCityRepository.findAll());
         return "user/add";
     }
 
