@@ -44,9 +44,9 @@ public class UserService {
             List<VisitedCity> visitedCityList = u.getVisitedCityList();
             List<VisitedCityDto> visitedCityDtos = new ArrayList<>();
             for (VisitedCity v: visitedCityList) {
-                VisitedCityDto phoneNumberDtoTemp = new VisitedCityDto();
-                BeanUtils.copyProperties(v, phoneNumberDtoTemp);
-                visitedCityDtos.add(phoneNumberDtoTemp);
+                VisitedCityDto visitedCityDtoTemp = new VisitedCityDto();
+                BeanUtils.copyProperties(v, visitedCityDtoTemp);
+                visitedCityDtos.add(visitedCityDtoTemp);
             }
             userDto.setVisitedCityDtoList(visitedCityDtos);
             userDtoList.add(userDto);
@@ -58,10 +58,18 @@ public class UserService {
         Optional<User> userOptional = userRepository.findById(userDto.getId());
         User user = userOptional.orElseGet(User::new);
         BeanUtils.copyProperties(userDto,user);
-        DesignationDto designationDto = userDto.getDesignationDto();
+
         Designation d2 = new Designation();
-        BeanUtils.copyProperties(designationDto,d2);
+        BeanUtils.copyProperties(userDto.getDesignationDto(),d2);
         user.setDesignation(d2);
+
+        List<VisitedCity> visitedCitiesTemp= new ArrayList<>();
+        for (VisitedCityDto cityDtoTemp: userDto.getVisitedCityDtoList()) {
+           VisitedCity cityTemp = new VisitedCity();
+           BeanUtils.copyProperties(cityDtoTemp, cityTemp);
+           visitedCitiesTemp.add(cityTemp);
+        }
+        user.setVisitedCityList(visitedCitiesTemp);
         userRepository.save(user);
     }
 

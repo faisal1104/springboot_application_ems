@@ -30,14 +30,15 @@
                 <i class="tm-block-title mb-4">Designation:</i><br>
                 <select name="designation" th:field="*{designationDto.designationId}">
                     <option th:each="designation : ${designationDtolist}"
-                            th:value="${designation.designationId}" th:text="${designation.designationName}"></option>
+                            th:value="${designation.designationId}"
+                            th:text="${designation.designationName}"></option>
                 </select>
 
                 <i class="tm-block-title mb-4">Visited City:</i><br>
-<!--                <select name="designation" th:field="*{visitedCityDtoList.add()}">-->
-<!--                    <option th:each="designation : ${designationDtolist}"-->
-<!--                            th:value="${designation.designationId}" th:text="${designation.designationName}"></option>-->
-<!--                </select>-->
+                <select multiple th:field="*{visitedCityDtoList}">
+                    <option th:each="city : ${cityList}"
+                            th:value="${city.cityId}" th:text="${city.cityName}"></option>
+                </select>
 
                 <br>
                 <br><br><i class="tm-block-title">Salary:</i>
