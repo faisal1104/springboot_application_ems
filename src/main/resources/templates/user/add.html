@@ -32,7 +32,7 @@
                     <option th:each="designation : ${designationDtolist}"
                             th:value="${designation.designationId}"
                             th:text="${designation.designationName}"></option>
-                </select>
+                </select><br>
 
                 <i class="tm-block-title mb-4">Visited City:</i><br>
                 <select multiple th:field="*{visitedCityDtoList}">
