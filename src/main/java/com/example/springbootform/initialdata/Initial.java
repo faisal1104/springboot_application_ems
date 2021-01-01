@@ -39,7 +39,9 @@ public class Initial implements CommandLineRunner {
 
         VisitedCity v1 = new VisitedCity("Dhaka"); VisitedCity v2 = new VisitedCity("Ctg");
         VisitedCity v3 = new VisitedCity("Sylhet"); VisitedCity v4 = new VisitedCity("Cumilla");
+        VisitedCity v5 = new VisitedCity("Barishal"); VisitedCity v6 = new VisitedCity("CoxBazar");
         visitedCityRepository.save(v1);visitedCityRepository.save(v2);visitedCityRepository.save(v3);visitedCityRepository.save(v4);
+        visitedCityRepository.save(v5);visitedCityRepository.save(v6);
 
         List<VisitedCity> cityList1 = new ArrayList<>();
         cityList1.add(v1); cityList1.add(v2);
@@ -49,9 +51,7 @@ public class Initial implements CommandLineRunner {
         user1.setVisitedCityList(cityList1);
         user2.setVisitedCityList(cityList2);
 
-        user1.setDesignation(designation1);
-        user2.setDesignation(designation2);
-        userRepository.save(user1);
-        userRepository.save(user2);
+        user1.setDesignation(designation1); userRepository.save(user1);
+        user2.setDesignation(designation2); userRepository.save(user2);
     }
 }
